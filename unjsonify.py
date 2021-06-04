@@ -2,6 +2,11 @@ import json
 import pyperclip
 
 text = input('Enter encoded JSON string: ')
+if text == "":
+    with open('input.json') as f:
+        text = f.read()
+
+text = text.rstrip("\n")
 
 if text.startswith('"'):
     text = text[1:-1]
