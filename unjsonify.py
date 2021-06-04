@@ -2,7 +2,9 @@ import json
 import pyperclip
 
 text = input('Enter encoded JSON string: ')
-if text == "":
+
+use_input_file = text == ""
+if use_input_file:
     with open('input.json') as f:
         text = f.read()
 
@@ -17,5 +19,10 @@ loaded = json.loads(text)
 
 pretty = json.dumps(loaded, indent = 4)
 
-print(pretty)
+if use_input_file:
+    with open('output.json', "w") as f:
+        print(pretty, file = f)
+else:
+    print(pretty)
+
 pyperclip.copy(pretty)
