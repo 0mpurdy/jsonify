@@ -3,3 +3,5 @@ Scripts/
 pyvenv.cfg
 input.json
 output.json
+input.txt
+output.txt
